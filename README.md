@@ -16,7 +16,6 @@
 ### 兼容性说明
 - 保持与原项目完全兼容
 - 音频节点使用ComfyUI标准音频格式，可直接与其他音频处理节点配合使用
-- 依赖项与ComfyUI核心依赖一致，无需额外安装
 ### 项目地址
 - GitHub： https://github.com/wjc573/comfyui-feishu-table
 - 基于原项目： https://github.com/loobayn/comfyui-feishu-table
