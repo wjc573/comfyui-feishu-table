@@ -78,6 +78,12 @@ class FeishuFetchVideoNode:
     CATEGORY = "飞书工具"
     OUTPUT_NODE = True
 
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        # 返回时间戳，让ComfyUI每次都重新执行（每次获取最新）
+        import time
+        return str(time.time())
+
     # =============== 基础 API ===============
     def get_access_token(self, app_id: str, app_secret: str) -> Optional[str]:
         try:
@@ -488,17 +494,19 @@ class FeishuFetchVideoNode:
         return tensor.unsqueeze(0)
 
     def _save_temp_video(self, data: bytes, suggested_name: str) -> str:
-        base_dir = os.path.join(os.path.dirname(__file__), "download")
+        # 使用 ComfyUI 的临时目录（与图片、音频节点保持一致）
         try:
-            os.makedirs(base_dir, exist_ok=True)
+            import folder_paths
+            temp_dir = folder_paths.get_temp_directory()
         except Exception:
-            base_dir = tempfile.gettempdir()
+            temp_dir = tempfile.gettempdir()
+        
         ext = os.path.splitext(suggested_name)[1].lower() or ".mp4"
         safe_name = re.sub(r"[^a-zA-Z0-9_\-\.]+", "_", os.path.splitext(suggested_name)[0])
-        file_path = os.path.join(base_dir, f"{safe_name}{ext}")
+        file_path = os.path.join(temp_dir, f"feishu_video_{safe_name}{ext}")
         # 若同名存在，创建唯一临时文件
         if os.path.exists(file_path):
-            fd, tmp = tempfile.mkstemp(suffix=ext, prefix=f"{safe_name}_")
+            fd, tmp = tempfile.mkstemp(suffix=ext, prefix="feishu_video_")
             os.close(fd)
             file_path = tmp
         with open(file_path, 'wb') as f:
@@ -613,7 +621,8 @@ class FeishuFetchVideoNode:
             return None, "错误：视频下载失败", extracted_content
 
         # 6. 保存到本地临时目录
-        local_path = self._save_temp_video(data, selected.get('name') or f"{file_token}.mp4")
+        suggested_name = selected.get('name') or f"{file_token}.mp4"
+        local_path = self._save_temp_video(data, suggested_name)
 
         # 7. 构造 VIDEO 对象
         video_obj = self._VideoFromPath(local_path)

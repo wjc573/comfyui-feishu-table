@@ -70,6 +70,11 @@ class FeishuTableNode:
     FUNCTION = "get_table_data"
     CATEGORY = "飞书工具"
     
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
+        import time
+        return str(time.time())
+    
     def get_access_token(self, app_id: str, app_secret: str) -> Optional[str]:
         """
         获取飞书访问令牌

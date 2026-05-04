@@ -69,7 +69,8 @@ class FeishuFetchImageNode:
     CATEGORY = "飞书工具"
     OUTPUT_NODE = True
 
-    def IS_CHANGED(self, **kwargs):
+    @classmethod
+    def IS_CHANGED(cls, **kwargs):
         # 让节点在每次执行时都刷新，确保预览能正确显示
         import time
         return str(time.time())

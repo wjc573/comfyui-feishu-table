@@ -23,7 +23,7 @@ NODE_CLASS_MAPPINGS = {
     "FeishuFetchAudioNode": FeishuFetchAudioNode,
     "FeishuConfigNode": FeishuConfigNode,
     "FeishuTextEditorNode": FeishuTextEditorNode,
-    "FeishuVideoUploadNode": FeishuVideoUploadNode
+    "FeishuVideoUploadNode": FeishuVideoUploadNode,
 }
 
 # 节点显示名称映射
@@ -36,7 +36,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "FeishuFetchAudioNode": "获取音频（飞书多维表格）",
     "FeishuConfigNode": "配置节点（飞书）",
     "FeishuTextEditorNode": "文本筛选（飞书）",
-    "FeishuVideoUploadNode": "上传多媒体（飞书多维表格）"
+    "FeishuVideoUploadNode": "上传多媒体（飞书多维表格）",
 }
 
 # 设置web目录，用于前端扩展
