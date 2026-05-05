@@ -186,6 +186,14 @@ class FeishuVideoUploadNode:
         if field_val is None:
             return False
         
+        # 如果搜索值和字段值都是数字，使用精确匹配
+        try:
+            field_num = float(field_val)
+            needle_num = float(keyword)
+            return field_num == needle_num
+        except (ValueError, TypeError):
+            pass
+        
         if isinstance(field_val, list):
             return any(keyword.lower() in str(item).lower() for item in field_val)
         else:

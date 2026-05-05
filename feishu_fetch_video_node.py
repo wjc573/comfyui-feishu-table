@@ -151,6 +151,15 @@ class FeishuFetchVideoNode:
     def _value_contains(self, v: Any, needle: str) -> bool:
         if v is None:
             return False
+        
+        # 如果搜索值和字段值都是数字，使用精确匹配
+        try:
+            field_num = float(v)
+            needle_num = float(needle)
+            return field_num == needle_num
+        except (ValueError, TypeError):
+            pass
+        
         needle_l = str(needle).lower()
         if isinstance(v, list):
             return any(needle_l in str(x).lower() for x in v)

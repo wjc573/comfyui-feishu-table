@@ -245,6 +245,15 @@ class FeishuTableNode:
             """判断字段值是否包含子串（大小写不敏感）。支持标量/列表。"""
             if field_val is None:
                 return False
+            
+            # 如果搜索值和字段值都是数字，使用精确匹配
+            try:
+                field_num = float(field_val)
+                needle_num = float(needle)
+                return field_num == needle_num
+            except (ValueError, TypeError):
+                pass
+            
             needle_l = str(needle).lower()
             if isinstance(field_val, list):
                 for v in field_val:
