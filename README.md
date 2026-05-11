@@ -1,6 +1,9 @@
 ## 项目更新说明
 ### 关注我的哔哩哔哩 (Follow me on Bilibili)
 📺 [我的哔哩哔哩主页](https://space.bilibili.com/30070651) - 获取更多 ComfyUI 相关教程和内容
+节点讲解视频：
+B站：https://www.bilibili.com/video/BV1L85762E6z
+YouTube:https://youtu.be/iC2bpHGVzZc
 ### 优化功能
 筛选逻辑在处理数字类型时，采用精准匹配（例如数字ID筛选，筛选条件为ID+1时，不会影响ID=10/21这些行），其余类型仍旧使用包含匹配（2026.05.05更新）
 ### 新增功能
