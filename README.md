@@ -63,7 +63,7 @@ YouTube:https://youtu.be/iC2bpHGVzZc
 cd ComfyUI/custom_nodes/
 
 # 克隆仓库
-git clone https://github.com/loobayn/comfyui-feishu-table.git
+git clone https://github.com/wjc573/comfyui-feishu-table.git
 
 # 安装依赖
 cd comfyui-feishu-table
@@ -76,9 +76,6 @@ pip install -r requirements.txt
 3. 重启 ComfyUI
 
 ## 使用方法
-
-### 📖 可视化使用指南
-![使用指南](https://github.com/loobayn/comfyui-feishu-table/blob/main/usage_guide.jpg)
 
 ### 第一步：配置飞书 API
 1. 在 ComfyUI 节点列表中找到 **"飞书工具"** 分类
@@ -207,20 +204,6 @@ pip install -r requirements.txt
 **Limitation of Liability**: This software is provided "AS IS", without warranty of any kind. The author shall not be held liable for any claims, damages, or other liabilities arising from the use of this software, including but not limited to credential leakage, accidental data loss or corruption, or account suspension.
 
 **Privacy Commitment**: This node runs entirely on the client side. It does not upload your credentials to any third-party servers. All sensitive data remains strictly within your locally generated workflow files.
-
----
-
-## ☕️ 支持与捐赠 (Support & Donation)
-
-如果本工具为您的工作带来了便利，不妨请我喝杯咖啡！您的支持是我持续更新的动力。💖
-
-If this tool has improved your productivity or simplified your workflow, feel free to buy me a coffee! Your support keeps me motivated to continue maintaining and updating this project. 💖
-
-### 关注我的哔哩哔哩 (Follow me on Bilibili)
-📺 [我的哔哩哔哩主页](https://space.bilibili.com/345888235) - 获取更多 ComfyUI 相关教程和内容
-
-### 捐赠支持 (Donation)
-![支持二维码](./donation-qr.jpg)
 
 ---
 
